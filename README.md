@@ -3,7 +3,7 @@ This Inventory Management System is a FastAPI-based web application designed to 
 
 During development, I encountered several challenges, including static file loading issues (fixed by correcting path handling), template inheritance errors and form submission problems (fixed by verifying POST methods and FastAPI routes). Additionally, I improved mobile responsiveness by refining media queries.
 
-Features
+## Features
 Dashboard: Overview of inventory status
 
 Add Items: Form for adding new inventory items
@@ -18,7 +18,7 @@ Low Stock Alerts: Identify items needing replenishment
 
 Responsive Design: Works on desktop and mobile devices
 
-Technologies Used
+## Technologies Used
 Python 3.x
 
 FastAPI (Backend)
