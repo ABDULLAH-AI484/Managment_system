@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Low Stock Alert</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="threshold">Threshold Quantity:</label>
+        <input type="number" id="threshold" name="threshold" required min="0" value="{{ threshold if threshold else 5 }}">
+    </div>
+    <button type="submit">Check</button>
+</form>
+
+{% if results %}
+<h2>Items Below Threshold ({{ threshold }})</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in results %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td class="low-stock">{{ item.quantity }}</td>
+            <td>${{ "%.2f"|format(item.price) }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% elif threshold is defined %}
+<p>No items below the threshold of {{ threshold }}</p>
+{% endif %}
+{% endblock %}

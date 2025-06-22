@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Remove Item</h1>
+
+{% if error %}
+<div class="alert error">{{ error }}</div>
+{% endif %}
+
+{% if success %}
+<div class="alert success">{{ success }}</div>
+{% endif %}
+
+<form method="post">
+    <div class="form-group">
+        <label for="item_id">Select Item to Remove:</label>
+        <select id="item_id" name="item_id" required>
+            <option value="">-- Select an item --</option>
+            {% for id, item in items.items() %}
+            <option value="{{ id }}">
+                [ID: {{ id }}] {{ item.name }} - Qty: {{ item.quantity }} - ${{ "%.2f"|format(item.price) }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="danger">Remove Item</button>
+</form>
+{% endblock %}

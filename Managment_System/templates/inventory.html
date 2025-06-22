@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="inventory-container">
+    <h1>Inventory managment</h1>
+
+    <div class="menu-section">
+        <h2>Menu Items</h2>
+        <div class="menu-items">
+            {% for id, item in items.items() %}
+            <div class="menu-item">
+                <label class="checkbox-container">
+                    <input type="checkbox" id="item-{{ id }}">
+                    <span class="checkmark"></span>
+                    {{ item.name }}
+                </label>
+                <span class="item-price">${{ "%.2f"|format(item.price) }}</span>
+            </div>
+            {% endfor %}
+        </div>
+        <button class="add-button">Add</button>
+    </div>
+
+    <div class="summary-section">
+        <div class="summary-header">
+            <span>Item</span>
+            <span>Price</span>
+            <span>Qty</span>
+            <span>Total</span>
+        </div>
+
+        <div class="summary-items" id="selected-items">
+            <!-- Selected items will appear here -->
+        </div>
+
+        <div class="total-section">
+            <div class="total-row">
+                <span>Total:</span>
+                <span id="grand-total">$0.00</span>
+            </div>
+            <div class="payment-buttons">
+                <button class="pay-button">Pay</button>
+                <button class="balance-button">Balance</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/static/inventory.js"></script>
+{% endblock %}

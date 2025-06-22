@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Inventory System{% endblock %}</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="icon" href="data:,">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <a href="/" class="nav-link {% if request.url.path == '/' %}active{% endif %}">
+            <i class="fas fa-home"></i> Home
+        </a>
+        <a href="/inventory" class="nav-link {% if request.url.path == '/inventory' %}active{% endif %}">
+            <i class="fas fa-tachometer-alt"></i> Dashboard
+        </a>
+        <a href="/items/add" class="nav-link {% if request.url.path == '/items/add' %}active{% endif %}">
+            <i class="fas fa-plus-circle"></i> Add Item
+        </a>
+        <a href="/items/remove" class="nav-link {% if request.url.path == '/items/remove' %}active{% endif %}">
+            <i class="fas fa-trash-alt"></i> Remove Item
+        </a>
+        <a href="/items" class="nav-link {% if request.url.path == '/items' %}active{% endif %}">
+            <i class="fas fa-list"></i> View All
+        </a>
+        <a href="/items/search" class="nav-link {% if request.url.path == '/items/search' %}active{% endif %}">
+            <i class="fas fa-search"></i> Search
+        </a>
+        <a href="/items/low-stock" class="nav-link {% if request.url.path == '/items/low-stock' %}active{% endif %}">
+            <i class="fas fa-exclamation-triangle"></i> Low Stock
+        </a>
+    </nav>
+
+    <div class="app-container">
+        {% block content %}{% endblock %}
+    </div>
+
+    {% block scripts %}
+    <script src="/static/inventory.js?v={{ timestamp }}"></script>
+    {% endblock %}
+</body>
+</html>

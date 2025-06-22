@@ -1,0 +1,29 @@
+{
+  "next_id": 5,
+  "items": {
+    "1": {
+      "name": "battery",
+      "quantity": 2,
+      "price": 20.0,
+      "date_added": "2025-06-23T02:16:17.565642"
+    },
+    "2": {
+      "name": "laptop",
+      "quantity": 1,
+      "price": 400.0,
+      "date_added": "2025-06-23T02:17:05.086664"
+    },
+    "3": {
+      "name": "bag",
+      "quantity": 1,
+      "price": 14.0,
+      "date_added": "2025-06-23T02:18:17.239807"
+    },
+    "4": {
+      "name": "pencil",
+      "quantity": 2,
+      "price": 14.0,
+      "date_added": "2025-06-23T02:21:55.895755"
+    }
+  }
+}
